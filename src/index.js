@@ -1,8 +1,13 @@
 require('dotenv').config()
-const Discord = require('discord.js')
+const Discord = require('discord.js');
+const { mongo } = require('mongoose');
 
 
 const client = new Discord.Client()
+
+//Adding to Client
+client.commands = new Discord.Collection()
+client.database = require('./database')
 
 //Event Handler
 fs.readdir("./events/", (err, files) => {
@@ -15,7 +20,6 @@ fs.readdir("./events/", (err, files) => {
 });
 
 //Setting Up Command Handler
-client.commands = new Discord.Collection()
 fs.readdir('./command/', (err, files) => {
     if (err) return
     files.forEach(file => {
@@ -26,6 +30,20 @@ fs.readdir('./command/', (err, files) => {
         client.commands.set(commandName, command)
     })
 })
+
+//Connect to mongoDb
+const server = process.env.DBSERVER
+const database = 'discowin'
+mongo.connect(`mongodb://${server}/${database}`,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+  }).then(() => {
+      console.log('Database connection successful')
+    })
+    .catch(err => {
+      console.error('Database connection error')
+    })   
 
 
 //Login 

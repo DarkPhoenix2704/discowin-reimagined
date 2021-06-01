@@ -1,23 +1,7 @@
-const mongoose = require('mongoose')
+const Discord = require('discord.js')
+const userModel = require('./model/user')
 
-
-const server = process.env.DBSERVER
-const database = 'discowin'
-
-class Database{
-    constructor(){
-        this._connect()
-    }
-    _connect() {
-        mongoose.connect(`mongodb://${server}/${database}`,{
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false
-        }).then(() => {
-            console.log('Database connection successful')
-          })
-          .catch(err => {
-            console.error('Database connection error')
-          })
-     }
+module.exports.addUser = async (_id,age,district) => {
+    let user = new userModel({_id:_id,age:age,district:district})
+    await user.save()
 }
