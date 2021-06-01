@@ -3,7 +3,7 @@ module.exports = {
     execute(client, message){
         const {author} = message
         try {
-            await client.removeUser(author.id)
+            await client.database.removeUser(author.id)
             const embedMessage = new Discord.MessageEmbed()
             .setTitle('UnSubscribed Succesfully')
             .setAuthor('Discowin','./bot.png','https://darkphoenix2704.github.io/discowin')

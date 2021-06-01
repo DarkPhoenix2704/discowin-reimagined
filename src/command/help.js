@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
 
-module.exports = (client, message) => {
+module.exports = {
+    execute(client, message){
     const embedMessage = new Discord.MessageEmbed()
     .setTitle('Available Commands')
     .setAuthor('Discowin','./bot.png','https://darkphoenix2704.github.io/discowin')
@@ -12,4 +13,4 @@ module.exports = (client, message) => {
     .setTimestamp()
 
     message.reply(embedMessage)
-}
+}}

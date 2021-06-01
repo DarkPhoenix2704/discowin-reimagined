@@ -1,5 +1,3 @@
-const { addUser } = require('../database')
-const userModel = require('../model/user')
 const Discord = require('discord.js')
 
 module.exports = {
@@ -12,7 +10,7 @@ module.exports = {
             return
         }
         try{
-            await addUser(author.id,age,district)
+            await client.database.addUser(author.id,age,district)
             const embedMessage = new Discord.MessageEmbed()
             .setTitle('Subscribed Succesfully')
             .setAuthor('Discowin','./bot.png','https://darkphoenix2704.github.io/discowin')
