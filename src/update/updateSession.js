@@ -6,7 +6,10 @@ module.exports = async (client) => {
         let {
             district_name
         } = userList[i]
-        let sessions = await getSession(district_name)
+        let {
+            _id
+        } = await client.database.getDistrict(district_name)
+        let sessions = await getSession(_id)
         for (let j = 0; j < sessions.length; j++) {
             let {
                 center_id,
