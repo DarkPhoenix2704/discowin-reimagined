@@ -7,7 +7,7 @@ const client = new Discord.Client()
 
 //Adding to Client
 client.commands = new Discord.Collection()
-client.database = require('./database')
+client.database = require('./database/database')
 
 //Event Handler
 fs.readdir("./events/", (err, files) => {
@@ -21,32 +21,32 @@ fs.readdir("./events/", (err, files) => {
 
 //Setting Up Command Handler
 fs.readdir('./command/', (err, files) => {
-    if (err) return
-    files.forEach(file => {
-        if (!file.endsWith('.js')) return //Skipping Files Which are not js files
-        let command = require(`./command/${file}`)
-        let commandName = file.split(".")[0]
-        client.log(`Attempting to Load ${commandName}`)
-        client.commands.set(commandName, command)
-    })
+  if (err) return
+  files.forEach(file => {
+    if (!file.endsWith('.js')) return //Skipping Files Which are not js files
+    let command = require(`./command/${file}`)
+    let commandName = file.split(".")[0]
+    client.log(`Attempting to Load ${commandName}`)
+    client.commands.set(commandName, command)
+  })
 })
 
 //Connect to mongoDb
 const server = process.env.DBSERVER
 const database = 'discowin'
-mongo.connect(`mongodb://${server}/${database}`,{
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
+mongo.connect(`mongodb://${server}/${database}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
   }).then(() => {
-      console.log('Database connection successful')
-    })
-    .catch(err => {
-      console.error('Database connection error')
-    })   
+    console.log('Database connection successful')
+  })
+  .catch(err => {
+    console.error('Database connection error')
+  })
 
 
 //Login 
 client.login(process.env.BOT_TOKEN).then(() => {
-    console.log(`Discowin: Logged in`)
+  console.log(`Discowin: Logged in`)
 })
