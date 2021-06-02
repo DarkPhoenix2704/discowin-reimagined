@@ -3,7 +3,7 @@ const axios = require('axios')
 const baseurl = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id='
 
 
-module.exports.getVaccine = async (district) => {
+module.exports.getSession = async (district) => {
     let requestUrl = baseurl + district + '&date=' + getDate()
     console.log(requestUrl)
     axios.get(requestUrl, {
