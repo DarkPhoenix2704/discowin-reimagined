@@ -38,7 +38,11 @@ module.exports.getDistrict = async (district) => {
     districtModel.find({
         district: district
     }, (err, data) => {
-        if(err) return null
+        if (err) return null
         return data
     })
+}
+
+module.exports.deleteDistricts = async () => {
+    districtModel.deleteMany({})
 }
