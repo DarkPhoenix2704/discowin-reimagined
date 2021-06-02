@@ -1,6 +1,6 @@
 require('dotenv').config()
 const Discord = require('discord.js');
-const { mongo } = require('mongoose');
+const mongo = require('mongoose');
 
 
 const client = new Discord.Client()
