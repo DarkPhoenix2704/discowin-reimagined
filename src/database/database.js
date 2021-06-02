@@ -20,12 +20,23 @@ module.exports.removeUser = async (_id) => {
     }, (err) => console.log(err))
 }
 
+module.exports.getUser = async (_id) => {
+    await userModel.find({
+        _id: _id
+    }, (err, data) => {
+        if (err) return []
+        return data
+    })
+}
 module.exports.getUsers = async () => {
     await userModel.find({}, (err, data) => {
         if (err) return []
         return data
     })
 }
+
+
+
 
 module.exports.addDistrict = async (_id, district) => {
     let _district = new districtModel({
@@ -37,7 +48,7 @@ module.exports.addDistrict = async (_id, district) => {
 
 module.exports.getDistricts = async () => {
     await districtModel.find({}, async (err, data) => {
-            if (err) return []
+        if (err) return []
         return data
     })
 }
@@ -55,7 +66,9 @@ module.exports.deleteDistricts = async () => {
     await districtModel.deleteMany({})
 }
 
-module.exports.getSession = async (district_name, age) => {
+
+
+module.exports.getSessions = async (district_name, age) => {
     await sessionModel.find({
         district_name: district_name,
         min_age_limit: getAge(age)
@@ -82,6 +95,15 @@ module.exports.addSession = async (id, district_name, name, vaccine, min_age_lim
         upsert: true
     })
 }
+
+module.exports.deleteSessionWhere = async (district_name) => {
+    await sessionModel.remove({
+        district_name: district_name
+    }, (err) => {
+        console.log(err)
+    })
+}
+
 module.exports.deleteSessions = async () => {
     await sessionModel.deleteMany()
 }
