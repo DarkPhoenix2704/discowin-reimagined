@@ -1,6 +1,6 @@
 # Discowin ReImagined
 
-Discowin Reimagined is a improved version of [this](https://github.com/darkphoenix2704/discowin) bot. The new bot is designed with scalability in mind.
+Discowin Reimagined is a improved version of [DisCowin](https://github.com/darkphoenix2704/discowin) bot. The new bot is designed with scalability in mind.
 
 ## Important
 This project is in WIP
