@@ -8,7 +8,7 @@ module.exports = {
         } = message
         const args = content.slice(process.env.PREFIX.length).trim().split(/ +/);
         let age = args[1],
-            district = args[2]
+         district = args[2]
         if (age < 0) {
             console.log('Age Can\'t be negative')
             return
@@ -27,8 +27,6 @@ module.exports = {
             const embedMessage = new Discord.MessageEmbed()
                 .setTitle('Error Occured')
                 .setAuthor('Discowin', '', 'https://darkphoenix2704.github.io/discowin')
-                .addField('Some Error Occured. Please Try Again Later')
-                .setFooter('Discowin')
                 .setTimestamp()
             message.reply(embedMessage)
         }

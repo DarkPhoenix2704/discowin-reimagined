@@ -8,7 +8,7 @@ module.exports = async (client) => {
             let {
                 district_id,
                 district_name
-            } = districtList[i]
+            } = districtList[j]
             await client.database.addDistrict(district_id, district_name)
         }
     }
