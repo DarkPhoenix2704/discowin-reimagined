@@ -1,10 +1,9 @@
 let mongoose = require('mongoose')
 let user = new mongoose.Schema({
     
-    id: {
-        type: String,
-        required: true,
-        unique: true,
+    _id: {
+        type: Number,
+        required: true
     },
     age: {
         type: Number,

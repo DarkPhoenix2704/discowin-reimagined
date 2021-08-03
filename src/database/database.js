@@ -7,22 +7,22 @@ const sessionModel = require('./model/session')
 
 module.exports.addUser = async (id, age, district) => {
     let user = new userModel({
-        id: id,
+        _id: id,
         age: age,
-        district: district
+        district_name: district
     })
     await user.save()
 }
 
 module.exports.removeUser = async (id) => {
     await userModel.remove({
-        id: id
+        _id: id
     }, (err) => console.log(err))
 }
 
 module.exports.getUser = async (id) => {
     await userModel.find({
-        id: id
+        _id: id
     }, (err, data) => {
         if (err) return []
         return data
