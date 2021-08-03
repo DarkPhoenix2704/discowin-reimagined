@@ -6,12 +6,11 @@ module.exports = {
     run: async (client, message) => {
 
         let {
-            _age,
             district_name
         } = await client.database.getUser(message.author.id)
-        let district_id = await client.database.getDistrict(district_name)
-        let sessions = await getSessions(district_id)
-        await client.database.deleteSessionsWhere(district_id)
+        let { _id } = await client.database.getDistrict(district_name)
+        let sessions = await getSessions(_id)
+        await client.database.deleteSessionsWhere(_id)
         for (let i = 0; i < sessions.length; i++) {
             let {
                 center_id,
