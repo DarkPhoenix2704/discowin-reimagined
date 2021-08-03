@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 
 module.exports = {
-    execute(client, message) {
+    run: async (client, message) => {
         const {
             content,
             author
@@ -17,7 +17,7 @@ module.exports = {
             await client.database.addUser(author.id, age, district)
             const embedMessage = new Discord.MessageEmbed()
                 .setTitle('Subscribed Succesfully')
-                .setAuthor('Discowin', './bot.png', 'https://darkphoenix2704.github.io/discowin')
+                .setAuthor('Discowin', '', 'https://darkphoenix2704.github.io/discowin')
                 .addField('You are succesfully Subscribed to Cowin Notifications')
                 .setFooter('Discowin')
                 .setTimestamp()
@@ -26,7 +26,7 @@ module.exports = {
             console.log(`Exception   ${e}`)
             const embedMessage = new Discord.MessageEmbed()
                 .setTitle('Error Occured')
-                .setAuthor('Discowin', './bot.png', 'https://darkphoenix2704.github.io/discowin')
+                .setAuthor('Discowin', '', 'https://darkphoenix2704.github.io/discowin')
                 .addField('Some Error Occured. Please Try Again Later')
                 .setFooter('Discowin')
                 .setTimestamp()
@@ -34,4 +34,7 @@ module.exports = {
         }
 
     }
+
+
+
 }
