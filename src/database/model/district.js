@@ -9,4 +9,4 @@ let district = new mongoose.Schema({
         required: true
     }
 })
-module.exports = mongoose.Model('district', district)
+module.exports = mongoose.model('district', district)

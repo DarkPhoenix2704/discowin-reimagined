@@ -5,24 +5,24 @@ const sessionModel = require('./model/session')
 
 
 
-module.exports.addUser = async (_id, age, district) => {
+module.exports.addUser = async (id, age, district) => {
     let user = new userModel({
-        _id: _id,
+        id: id,
         age: age,
         district: district
     })
     await user.save()
 }
 
-module.exports.removeUser = async (_id) => {
+module.exports.removeUser = async (id) => {
     await userModel.remove({
-        _id: _id
+        id: id
     }, (err) => console.log(err))
 }
 
-module.exports.getUser = async (_id) => {
+module.exports.getUser = async (id) => {
     await userModel.find({
-        _id: _id
+        id: id
     }, (err, data) => {
         if (err) return []
         return data

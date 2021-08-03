@@ -36,4 +36,4 @@ let session = new mongoose.Schema({
         required: true
     }
 })
-module.exports = mongoose.Model('session', session)
+module.exports = mongoose.model('session', session)
