@@ -1,4 +1,3 @@
-const Discord = require('discord.js')
 const userModel = require('./model/user')
 const districtModel = require('./model/district')
 const sessionModel = require('./model/session')
