@@ -1,6 +1,6 @@
 let mongoose = require('mongoose')
 let user = new mongoose.Schema({
-    
+
     _id: {
         type: Number,
         required: true

@@ -7,7 +7,7 @@ module.exports = member => {
     const embedMessage = new Discord.MessageEmbed()
         .setTitle('Welcome')
         .setAuthor('Discowin', '', 'https://darkphoenix2704.github.io/discowin')
-        .addField(`Hi <@${member.id}>\nWelcome to ${member.guild.name}\n!help for available commands`)
+        .addField(`Hi <@${member.id}>`, `Welcome to ${member.guild.name}\n!help for available commands`, false)
         .setFooter('Discowin')
         .setTimestamp()
 

@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
     run: async (client, message) => {
+        //Returns a help message on !help
         const embedMessage = new Discord.MessageEmbed()
             .setTitle('Available Commands')
             .setAuthor('Discowin', '', 'https://darkphoenix2704.github.io/discowin')

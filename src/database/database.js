@@ -3,7 +3,6 @@ const districtModel = require('./model/district')
 const sessionModel = require('./model/session')
 
 
-
 module.exports.addUser = async (id, age, district) => {
     let user = new userModel({
         _id: id,
@@ -31,8 +30,6 @@ module.exports.getUsers = async () => {
         return data
     })
 }
-
-
 
 
 module.exports.addDistrict = async (id, district) => {
@@ -93,7 +90,7 @@ module.exports.addSession = async (id, district_name, name, vaccine, min_age_lim
 module.exports.deleteSessionWhere = async (district_name) => {
     await sessionModel.deleteMany({
         district_name: district_name
-    },(err => {
+    }, (err => {
         console.log(err)
     }))
 }

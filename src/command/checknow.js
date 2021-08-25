@@ -3,8 +3,8 @@ const getSessions = require('../api/getsession')
 
 module.exports = {
     run: async (client, message) => {
-        let userData = await client.database.getUser(message.author.id)
-        let { district_name } = await userData[0]
+        let usersData = await client.database.getUser(message.author.id)
+        let {district_name} = await usersData[0]
         let district = await client.database.getDistrict(district_name)
         let _id = district[0]._id
         await client.database.deleteSessionWhere(district[0].district)
