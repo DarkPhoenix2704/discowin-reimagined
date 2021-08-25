@@ -21,12 +21,10 @@ module.exports.removeUser = async (id) => {
 }
 
 module.exports.getUser = async (id) => {
-    await userModel.find({
+    let user = await userModel.find({
         _id: id
-    }, (err, data) => {
-        if (err) return []
-        return data
     })
+    return user
 }
 module.exports.getUsers = async () => {
     await userModel.find({}, (err, data) => {
