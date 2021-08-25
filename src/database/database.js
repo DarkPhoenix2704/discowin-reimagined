@@ -92,11 +92,11 @@ module.exports.addSession = async (id, district_name, name, vaccine, min_age_lim
 }
 
 module.exports.deleteSessionWhere = async (district_name) => {
-    await sessionModel.remove({
+    await sessionModel.deleteMany({
         district_name: district_name
-    }, (err) => {
+    },(err => {
         console.log(err)
-    })
+    }))
 }
 
 module.exports.deleteSessions = async () => {
