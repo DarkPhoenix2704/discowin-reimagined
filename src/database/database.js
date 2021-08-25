@@ -51,12 +51,10 @@ module.exports.getDistricts = async () => {
 }
 
 module.exports.getDistrict = async (district) => {
-    await districtModel.find({
+    let _district = await districtModel.find({
         district: district
-    }, (err, data) => {
-        if (err) return null
-        return data
     })
+    return _district
 }
 
 module.exports.deleteDistricts = async () => {
