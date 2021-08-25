@@ -12,8 +12,7 @@ module.exports.getSession = async (district) => {
         }
     })
     const res = req.then((value) => value.data.sessions )
-    const err = req.catch((err) => console.log(err))
-    if (err) return []
+    const err = req.catch((err) => err)
     return res
 }
 

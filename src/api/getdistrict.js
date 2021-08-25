@@ -12,7 +12,7 @@ module.exports.getDistrict = async (state_id) => {
         }
     })
     const res = req.then((value) => value.data.districts)
-    req.catch((err) => console.log(err))
+    const err = req.catch((err) => err)
     return res
     
 }
