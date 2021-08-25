@@ -1,6 +1,8 @@
+const Discord = require('discord.js')
+
+
 module.exports = {
     run: async (client, message) => {
-
         const {
             author
         } = message
@@ -9,7 +11,7 @@ module.exports = {
             const embedMessage = new Discord.MessageEmbed()
                 .setTitle('UnSubscribed Succesfully')
                 .setAuthor('Discowin', '', 'https://darkphoenix2704.github.io/discowin')
-                .addField('You are succesfully unSubscribed to Cowin Notifications')
+                .addField('You are succesfully unSubscribed to Cowin Notifications', 'Have a nice day')
                 .setFooter('Discowin')
                 .setTimestamp()
             message.reply(embedMessage)
@@ -18,7 +20,7 @@ module.exports = {
             const embedMessage = new Discord.MessageEmbed()
                 .setTitle('Error Occured')
                 .setAuthor('Discowin', '', 'https://darkphoenix2704.github.io/discowin')
-                .addField('Some Error Occured. Please Try Again Later')
+                .addField('Some Error Occured', 'Please Try Again Later')
                 .setFooter('Discowin')
                 .setTimestamp()
             message.reply(embedMessage)

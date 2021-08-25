@@ -10,9 +10,14 @@ module.exports = {
         //Gets arguments passed with !Subscribe
         const args = content.slice(process.env.PREFIX.length).trim().split(/ +/);
         let age = args[1],
-         district = args[2]
-        if (age < 0) {
+            district = args[2]
+        if (age < 0 && !age.isNumber()) {
             console.log('Age Can\'t be negative')
+            const embedMessage = new Discord.MessageEmbed()
+                .setTitle('Error Occured')
+                .setAuthor('Discowin', '', 'https://darkphoenix2704.github.io/discowin')
+                .setTimestamp()
+            message.reply(embedMessage)
             return
         }
         try {
@@ -33,7 +38,6 @@ module.exports = {
         }
 
     }
-
 
 
 }

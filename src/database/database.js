@@ -13,7 +13,7 @@ module.exports.addUser = async (id, age, district) => {
 }
 
 module.exports.removeUser = async (id) => {
-    await userModel.remove({
+    await userModel.deleteOne({
         _id: id
     }, (err) => console.log(err))
 }
@@ -58,15 +58,12 @@ module.exports.deleteDistricts = async () => {
 }
 
 
-
 module.exports.getSessions = async (district_name, age) => {
-    await sessionModel.find({
+    let sessions = await sessionModel.find({
         district_name: district_name,
         min_age_limit: getAge(age)
-    }, (err, data) => {
-        if (err) return []
-        return data
     })
+    return sessions
 }
 
 module.exports.addSession = async (id, district_name, name, vaccine, min_age_limit, fee_type, fee, available_capacity, date) => {
