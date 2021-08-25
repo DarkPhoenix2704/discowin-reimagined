@@ -6,30 +6,21 @@ const baseurl = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/fi
 module.exports.getSession = async (district) => {
     let requestUrl = baseurl + district + '&date=' + getDate()
     console.log(requestUrl)
-    axios.get(requestUrl, {
+    const req = axios.get(requestUrl, {
         headers: {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:89.0) Gecko/20100101 Firefox/89.0',
         }
-    }).then(async value => {
-        let sessions = value.data.sessions
-        let availableSessions = []
-        for (let i = 0; i < sessions.length; i++) {
-            if (sessions[i].available_capacity == 0) {
-                continue
-            }
-            availableSessions.push(sessions[i])
-        }
-        return availableSessions
-    }, async exception => {
-        console.log(exception)
     })
+    const res = req.then((value) => value.data.sessions )
+    const err = req.catch((err) => console.log(err))
+    if (err) return []
+    return res
 }
 
 function getDate() {
     let today = new Date()
     let dd = today.getDate()
     let mm = today.getMonth() + 1
-
     const yyyy = today.getFullYear()
     if (dd < 10) {
         dd = '0' + dd
