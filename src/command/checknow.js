@@ -1,9 +1,14 @@
-const Discord = require('discord.js')
 const getSessions = require('../api/getsession')
 
 
 module.exports = {
     run: async (client, message) => {
+        let userData = await client.database.getUser(message.author.id)
+        let { district_name } = await userData[0]
+        let district = await client.database.getDistrict(district_name)
+        let _id = district[0]._id
+        await client.database.deleteSessionWhere(district[0].district)
+        let sessions = await getSessions.getSession(_id)
 
         for (let i = 0; i < sessions.length; i++) {
             if (sessions[i].available_capacity === 0) {
@@ -19,7 +24,7 @@ module.exports = {
                 fee,
                 available_capacity,
                 date
-            } = sessions[i]
+            } = await sessions[i]
             await client.database.addSession(center_id, district_name, name, vaccine, min_age_limit, fee_type, fee, available_capacity, date)
         }
 
