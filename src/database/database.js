@@ -36,12 +36,11 @@ module.exports.getUsers = async () => {
 
 
 
-module.exports.addDistrict = async (_id, district) => {
-    let _district = new districtModel({
-        _id,
-        district
-    })
-    await _district.save
+module.exports.addDistrict = async (id, district) => {
+    await new districtModel({
+        _id: id,
+        district: district
+    }).save()
 }
 
 module.exports.getDistricts = async () => {
