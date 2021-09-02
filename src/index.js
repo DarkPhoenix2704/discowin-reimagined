@@ -2,7 +2,10 @@ require('dotenv').config()
 const Discord = require('discord.js');
 const mongo = require('mongoose');
 const fs = require('fs')
-
+const cron = require('node-cron')
+const updateDistrict = require('update/updateDistrict')
+const updateSession = require('update/updateSession')
+const dm = require('dm')
 
 const client = new Discord.Client()
 
@@ -39,14 +42,24 @@ mongo.connect(`mongodb://${server}/${database}`, {
     useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true
-}).then(() => {
-    console.log('Database connection successful')
-})
+    }).then(() => {
+        console.log('Database connection successful')
+    })
     .catch(err => {
         console.error('Database connection error')
         console.log(err)
     })
 
+cron.schedule('0 0 * * *', async () => {
+    await updateDistrict(client)
+    console.log('District Table is updated')
+})
+
+cron.schedule('5 * * * *', async () => {
+    await updateSession(client)
+    let userList = await client.database.getUsers()
+    await dm(client, userList)
+})
 
 //Login 
 client.login(process.env.BOT_TOKEN).then(() => {
