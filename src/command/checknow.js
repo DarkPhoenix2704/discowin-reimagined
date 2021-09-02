@@ -1,5 +1,5 @@
 const getSessions = require('../api/getsession')
-
+const dm = require('../dm')
 
 module.exports = {
     run: async (client, message) => {
@@ -27,6 +27,7 @@ module.exports = {
             } = await sessions[i]
             await client.database.addSession(center_id, district_name, name, vaccine, min_age_limit, fee_type, fee, available_capacity, date)
         }
+        await dm(client, usersData)
 
     }
 }
