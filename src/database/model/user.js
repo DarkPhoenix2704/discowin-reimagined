@@ -2,7 +2,7 @@ let mongoose = require('mongoose')
 let user = new mongoose.Schema({
 
     _id: {
-        type: Number,
+        type: String,
         required: true
     },
     age: {
