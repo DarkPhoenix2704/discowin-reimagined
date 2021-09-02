@@ -11,5 +11,6 @@ module.exports = member => {
         .setFooter('Discowin')
         .setTimestamp()
 
-    message.reply(embedMessage)
+    channel.send(embedMessage)
+
 }
