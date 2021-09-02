@@ -37,7 +37,7 @@ const database = 'discowin'
 mongo.connect(`mongodb://${server}/${database}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     useCreateIndex: true
 }).then(() => {
     console.log('Database connection successful')
