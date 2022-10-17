@@ -1,62 +1,28 @@
 # Discowin ReImagined
 
-Discowin Reimagined is a improved version of [DisCowin](https://github.com/darkphoenix2704/discowin) bot. The new bot is designed with scalability in mind.
+## 💁 About The Project
+Discowin Reimagined is a improved version of [DisCowin](https://github.com/darkphoenix2704/discowin) bot. The new bot is designed with scalability in mind. 
+<br/>
+<br/>
 
-## Important
+<div align="center">
 
-This project is in WIP
+![NPM
+version](https://img.shields.io/badge/npm-v8.11.0-important)
+![Node Version](https://img.shields.io/badge/Node-v16.6.0-critical)
+![Axios
+version](https://img.shields.io/badge/axios-v0.21.1-yellow)
+![mongoose](https://img.shields.io/badge/mongoose-v5.12.12-green)
 
-## Requirements
+</div><br/>
 
-Node.js v16.6 or Higher
+## **Important**
 
-## How to Configure
+This project is in WIP 
 
-1. Clone the project
+<br/>
 
-```
-git clone -b main https://github.com/DarkPhoenix2704/discowin-reimagined.git
-```
+## **Links**
+- [Quick Start](https://github.com/DarkPhoenix2704/discowin-reimagined/tree/main/.github/quickstart.md)
+- [Contributing](https://github.com/DarkPhoenix2704/discowin-reimagined/tree/main/.github/CONTRIBUTING.md)
 
-2. Go to Project Directory
-
-```
-cd discowin-reimagined
-```
-
-3. Install Dependencies
-
-```
-yarn
-```
-
-4. Create .env
-
-```
-BOT_TOKEN=
-DBSERVER=
-PREFIX=
-```
-
-Get the BOT_TOKEN from Discord Developer portal after creating an application and a bot.
-DBSERVER is for mongodb
-PREFIX is the bot prefix to call commands (e.g. ?help -> ? is the PREFIX)
-
-5. Run The Bot
-
-```
-yarn start
-```
-
-or
-
-```
-node src/index.js
-```
-
-## Contributing
-
-Fork this repo, follow the installation process mentioned above(clone your repo after fork and not this one), make the required changes, push to your repo and create a pull request.
-Please make sure to pull any changes in upstream before pushing your changes.
-
-For major changes, please open an issue first to discuss what you would like to change.
